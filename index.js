@@ -9,28 +9,17 @@ const cors = require('cors')
 
 require('dotenv').config()
 const PORT = process.env.PORT || 4000
-
-
-// mongoose.connect(process.env.DB_URI)
-//   .then(() => {
-//     console.log('Database Connected')
-//   }).catch((err) => {
-//     console.log('Err===>', err)
-//   })
-
 app.use(bodyParser.json())
-// app.use(fileupload({ useTempFiles: true }))
-
-
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static(path.join(__dirname, './client/build')))
 app.use(cors());
 
 // app.use('/api', require('./routes'))
+app.use('/api',require('./routes/get'))
 
-app.get('/home',(req,res)=>{
-    res.send('Hello')
-})
+// app.get('/home',(req,res)=>{
+//     res.send('Hello')
+// })
 
 
 app.use(bodyParser.json({ limit: '50mb' }))
