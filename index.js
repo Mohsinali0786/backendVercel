@@ -23,12 +23,11 @@ app.use(bodyParser.json())
 
 
 app.use(bodyParser.urlencoded({ extended: true }))
-app.use(express.static(path.join(__dirname, './client/build')))
 app.use(cors());
 
 // app.use('/api', require('./routes'))
 
-app.get('/',(req,res)=>{
+app.get('/home',(req,res)=>{
     res.send('Hello')
 })
 
